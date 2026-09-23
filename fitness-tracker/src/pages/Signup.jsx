@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Auth.css'
 
-export default function Signup({ onSignup }) {
-  const [name, setName] = useState('')
+function Signup({ onSignup }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -12,14 +11,13 @@ export default function Signup({ onSignup }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setError('')
-
-    if (!name || !email || !password || !confirmPassword) {
+    
+    if (!email || !password || !confirmPassword) {
       setError('Please fill in all fields')
       return
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!/\S+@\S+\.\S+/.test(email)) {
       setError('Please enter a valid email')
       return
     }
@@ -34,70 +32,62 @@ export default function Signup({ onSignup }) {
       return
     }
 
-    onSignup({ 
-      name, 
-      email,
-      joinDate: new Date().toLocaleDateString()
-    })
+    onSignup(email)
     navigate('/dashboard')
   }
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>🏋️ Sign Up</h1>
-        <p className="subtitle">Create your Fitness Tracker account</p>
-        
-        {error && <div className="error-message">{error}</div>}
-        
+        <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Full Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your full name"
-            />
-          </div>
-
           <div className="form-group">
             <label>Email</label>
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setError('')
+              }}
               placeholder="Enter your email"
             />
           </div>
-
           <div className="form-group">
             <label>Password</label>
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
+              onChange={(e) => {
+                setPassword(e.target.value)
+                setError('')
+              }}
+              placeholder="Enter password (min 6 characters)"
             />
           </div>
-
           <div className="form-group">
             <label>Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value)
+                setError('')
+              }}
               placeholder="Confirm your password"
             />
           </div>
-
-          <button type="submit" className="btn-primary">Sign Up</button>
+          {error && <div className="error">{error}</div>}
+          <button type="submit" className="btn-primary">
+            Sign Up
+          </button>
         </form>
-
-        <p className="toggle-auth">
-          Already have an account? <a href="/login">Login</a>
+        <p className="auth-link">
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </div>
     </div>
   )
 }
+
+export default Signup

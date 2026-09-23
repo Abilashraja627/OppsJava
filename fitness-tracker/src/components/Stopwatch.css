@@ -1,0 +1,146 @@
+.stopwatch-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stopwatch-card h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.stopwatch-display {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.time-display {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stopwatch-controls button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.btn-start, .btn-resume {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-start:hover, .btn-resume:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.btn-pause {
+  background: #ff9800;
+  color: white;
+}
+
+.btn-pause:hover {
+  background: #e68900;
+  transform: translateY(-2px);
+}
+
+.btn-lap {
+  background: #2196F3;
+  color: white;
+}
+
+.btn-lap:hover:not(:disabled) {
+  background: #0b7dda;
+  transform: translateY(-2px);
+}
+
+.btn-lap:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-reset {
+  background: #f44336;
+  color: white;
+}
+
+.btn-reset:hover {
+  background: #da190b;
+  transform: translateY(-2px);
+}
+
+.laps-section {
+  margin-top: 30px;
+  border-top: 2px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.laps-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.laps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.lap-number {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.lap-time {
+  font-family: 'Courier New', monospace;
+  color: #333;
+  font-weight: 500;
+}
