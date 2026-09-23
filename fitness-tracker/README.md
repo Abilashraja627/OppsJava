@@ -1,169 +1,166 @@
-# 💪 Fitness Tracker - React App
+# Fitness Tracker App
 
-A modern, full-featured fitness tracking application built with React, featuring a stopwatch timer, calorie tracker, and user authentication system.
+A comprehensive React-based fitness tracking application with a stopwatch and calorie tracker, featuring user authentication (login and signup).
 
 ## Features
 
 ### 🔐 Authentication
-- **Login Page**: Secure login with email and password validation
-- **Signup Page**: User registration with password confirmation
-- **Session Management**: User data persisted in localStorage
+- **Signup Page**: Create a new account with email and password
+- **Login Page**: Secure login for existing users
+- Password validation (minimum 6 characters)
+- Email validation
+- Local storage-based session management
 
 ### ⏱️ Stopwatch
-- **Start/Pause Controls**: Start and pause your workout timer
-- **Lap Recording**: Track individual lap times during workouts
-- **Precise Timing**: Accurate to centiseconds (00:00.00 format)
-- **Reset Function**: Clear timer and lap history
+- Start, pause, and resume functionality
+- Lap tracking with individual lap times
+- Real-time display with hours, minutes, seconds, and milliseconds
+- Reset timer to start over
+- Track multiple laps during a session
 
 ### 🍎 Calorie Tracker
-- **Food Database**: Pre-loaded with 15+ common food items
-- **Meal Logging**: Add meals with quantities
-- **Meal Categories**: Organize by breakfast, lunch, dinner, snacks
-- **Daily Goal Tracking**: Monitor progress toward 2000 calorie daily goal
-- **Meal Breakdown**: View calories by meal type
-- **Food Filtering**: Filter foods by category (Fruits, Protein, Grains, Dairy, Fast Food)
-- **Delete Meals**: Remove incorrectly logged meals
-
-### 📊 Dashboard
-- **User Welcome**: Personalized greeting with user information
-- **Quick Access**: Links to stopwatch and calorie tracker
-- **Profile Info**: Display user details and join date
-
-## Installation & Setup
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Steps
-
-1. **Navigate to the project directory**
-   ```bash
-   cd fitness-tracker
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**
-   ```bash
-   npm run preview
-   ```
+- Set and adjust daily calorie goals
+- Add foods with calorie values
+- Real-time calorie consumption tracking
+- Visual progress bar showing daily intake
+- Edit or delete previously logged foods
+- View consumed, remaining, and percentage of daily goal
+- Timestamp tracking for each food entry
 
 ## Project Structure
 
 ```
 fitness-tracker/
 ├── src/
+│   ├── components/
+│   │   ├── Stopwatch.jsx
+│   │   ├── Stopwatch.css
+│   │   ├── CalorieTracker.jsx
+│   │   └── CalorieTracker.css
 │   ├── pages/
-│   │   ├── Login.jsx              # Login page component
-│   │   ├── Signup.jsx             # Signup page component
-│   │   ├── Dashboard.jsx          # Main dashboard
-│   │   ├── Stopwatch.jsx          # Stopwatch component
-│   │   ├── CalorieTracker.jsx     # Calorie tracker component
-│   │   ├── Auth.css               # Authentication styling
-│   │   ├── Dashboard.css          # Dashboard styling
-│   │   ├── Stopwatch.css          # Stopwatch styling
-│   │   └── CalorieTracker.css     # Calorie tracker styling
-│   ├── App.jsx                    # Main app component with routing
-│   ├── App.css                    # App styles
-│   ├── index.css                  # Global styles
-│   └── main.jsx                   # Entry point
-├── index.html                     # HTML template
-├── package.json                   # Dependencies and scripts
-├── vite.config.js                 # Vite configuration
-└── README.md                      # This file
+│   │   ├── Login.jsx
+│   │   ├── Signup.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── Auth.css
+│   │   └── Dashboard.css
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── index.html
+├── package.json
+└── vite.config.js
 ```
 
-## Technologies Used
+## Tech Stack
 
-- **React 18.2**: UI framework
-- **React Router 6.8**: Client-side routing
-- **Vite 4.3**: Build tool and dev server
-- **CSS3**: Responsive styling with gradients and animations
+- **React 18.2.0** - UI Library
+- **React Router DOM 6.8.0** - Client-side routing
+- **Vite 4.3.9** - Build tool and dev server
+- **CSS3** - Styling with modern animations and gradients
 
-## Features Breakdown
+## Getting Started
 
-### Authentication Flow
-1. User arrives at login page
-2. Can either login with existing credentials or navigate to signup
-3. After successful login/signup, user is redirected to dashboard
-4. Session is persisted using localStorage
-5. Logout clears session data
+### Installation
 
-### Stopwatch Features
-- **Real-time Timer**: Updates every 10ms for precision
-- **Lap Recording**: Capture multiple lap times
-- **Display Format**: MM:SS.MS (Minutes:Seconds.Milliseconds)
-- **Full Controls**: Start, Pause, Lap, Reset buttons
+1. Navigate to the fitness-tracker directory:
+```bash
+cd fitness-tracker
+```
 
-### Calorie Tracker Features
-- **Food Database**:
-  - Fruits: Apple, Banana, Orange
-  - Protein: Chicken, Fish, Eggs
-  - Grains: Rice, Bread, Pasta
-  - Dairy: Milk, Yogurt, Cheese
-  - Fast Food: Pizza, Burger, Fries
+2. Install dependencies:
+```bash
+npm install
+```
 
-- **Daily Progress**:
-  - Visual progress bar showing calories vs 2000 cal goal
-  - Remaining calories display
-  - Breakdown by meal type
+### Development
 
-## User Interface
+Start the development server:
+```bash
+npm run dev
+```
 
-### Color Scheme
-- **Primary**: Purple gradient (#667eea to #764ba2)
-- **Accent**: Teal (#4ecdc4)
-- **Text**: Dark gray (#333)
-- **Background**: White with gradient overlays
+The app will be available at `http://localhost:3000` (or the next available port)
 
-### Responsive Design
-- Mobile-first approach
-- Tablet and desktop optimized layouts
-- Flexible grid system
-- Touch-friendly buttons and inputs
+### Build
 
-## Data Persistence
+Create a production build:
+```bash
+npm run build
+```
 
-- **User Data**: Stored in localStorage as JSON
-- **Session**: Checked on app load
-- **Meals**: Currently session-based (can be extended to backend)
+The optimized build will be in the `dist/` directory.
 
-## Future Enhancements
+### Preview Production Build
 
-- Backend integration for data persistence
-- User profiles with goals customization
-- Workout history and statistics
-- Calorie recommendations based on activity
-- Social features (friend connections, challenges)
-- Mobile app version
-- Push notifications for meal reminders
-- Integration with fitness APIs
+Preview the production build locally:
+```bash
+npm run preview
+```
 
-## Browser Support
+## Usage Guide
+
+### 1. Authentication Flow
+- Start at the login page or navigate to signup for a new account
+- Enter your email and password
+- For signup, password must be at least 6 characters
+- After login/signup, you'll be redirected to the dashboard
+
+### 2. Using the Stopwatch
+- Click **Start** to begin timing
+- Use **Lap** to record lap times while running
+- Click **Pause** to pause the timer
+- Click **Resume** to continue from where you paused
+- Click **Reset** to clear the timer and lap times
+- All lap times are displayed in the Lap Times section
+
+### 3. Using the Calorie Tracker
+- Set your daily calorie goal (default: 2000 kcal)
+- Enter food name and calories in the input fields
+- Click **Add** to log the food
+- View real-time statistics:
+  - Calories consumed today
+  - Remaining calories for the day
+  - Percentage of daily goal consumed
+- Edit any logged food by clicking **Edit**
+- Delete entries by clicking **Delete**
+- Visual progress bar shows your daily intake percentage
+
+## Features Highlights
+
+### Modern UI Design
+- Gradient backgrounds with purple/blue theme
+- Smooth animations and transitions
+- Responsive layout for all screen sizes
+- Clean and intuitive interface
+
+### Data Persistence
+- User sessions stored in browser localStorage
+- Food entries stored per session
+- Calorie data persists during the session
+
+### Input Validation
+- Email format validation
+- Password strength checking
+- Numeric validation for calorie inputs
+- Required field validation
+
+## Browser Compatibility
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
+## Future Enhancements
+
+- Backend integration for persistent data storage
+- User profiles and statistics
+- Weekly/monthly reports
+- Exercise tracking
+- Integration with fitness APIs
+- Mobile app version
+- Social sharing features
+
 ## License
 
-This project is open source and available for educational purposes.
-
-## Author
-
-Created as a modern fitness tracking application with React and Vite.
+This project is private and created for educational purposes.
