@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-import Dashboard from './pages/Dashboard'
-import Stopwatch from './pages/Stopwatch'
-import CalorieTracker from './pages/CalorieTracker'
+import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
+import Dashboard from './pages/Dashboard.jsx'
+import Stopwatch from './pages/Stopwatch.jsx'
+import CalorieTracker from './pages/CalorieTracker.jsx'
 import './App.css'
 
 function App() {
